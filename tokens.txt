@@ -1,0 +1,13 @@
+ID z
+BEC
+NUM 2
+SEM
+IF
+ID z
+LESS
+NUM 3
+THEN
+ID z
+BEC
+NUM 1
+END

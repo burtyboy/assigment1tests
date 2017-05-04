@@ -1,0 +1,9 @@
+read j;
+x := j
+if (x = 3) then
+	y := x * 3 + 5 - 7
+while y != 4 do
+	0x + 3
+end
+
+	
