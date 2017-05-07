@@ -22,15 +22,11 @@ class Scanner:
         '''Consumes all characters in input_string up to the next
            non-white-space character. Implemented by me'''
         is_valid = False
+        if self.current_char_index >= len(self.input_string):
+            exit()
         
         while (is_valid == False):
             viewpoint = self.input_string[self.current_char_index]
-            #if self.current_char_index + 1 <= len(self.input_string):
-                #view2 = viewpoint + self.input_string[self.current_char_index + 1]
-                #newline_match = re.match(r"\n", view2)
-            #else:
-                #newline_match == None # Catches an end of list index error and provides newline_match with a value to be compared
-
             if viewpoint == "\t":
                 self.current_char_index += 1      
             elif viewpoint == " ":
@@ -63,11 +59,10 @@ class Scanner:
             if match and match.end() > len(longest):
                 token, longest = t, match.group()
         # consume the token by moving the index to the end of the matched part
-        self.current_char_index += len(longest)
-        next_char = self.input_string[self.current_char_index]
-        if token == None  or (next_char != " " and next_char != "\n" and next_char != "\t" and next_char != ";" and next_char != "(" and next_char != ")") and token != "LPAR":
-            self.current_char_index -= len(longest)
+        
+        if token == None:
             self.no_token()
+        self.current_char_index += len(longest)
         return (token, longest)
 
     def lookahead(self):
