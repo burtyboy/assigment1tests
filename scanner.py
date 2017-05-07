@@ -22,11 +22,12 @@ class Scanner:
         '''Consumes all characters in input_string up to the next
            non-white-space character. Implemented by me'''
         is_valid = False
-        if self.current_char_index >= len(self.input_string):
-            exit()
         
         while (is_valid == False):
-            viewpoint = self.input_string[self.current_char_index]
+            try:
+                viewpoint = self.input_string[self.current_char_index]
+            except IndexError:
+                exit()
             if viewpoint == "\t":
                 self.current_char_index += 1      
             elif viewpoint == " ":
