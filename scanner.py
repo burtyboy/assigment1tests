@@ -17,6 +17,7 @@ class Scanner:
         self.current_char_index = 0
         # a pair (most recently read token, matched substring of input_string)
         self.current_token = self.get_token()
+        
 
     def skip_white_space(self):
         '''Consumes all characters in input_string up to the next
@@ -34,6 +35,8 @@ class Scanner:
                 self.current_char_index += 1
             elif viewpoint == "\n":
                 self.current_char_index += 1
+            elif viewpoint == '\r':
+                self.current_char_index +=1            
             else:
                 is_valid = True
 
@@ -60,10 +63,13 @@ class Scanner:
             if match and match.end() > len(longest):
                 token, longest = t, match.group()
         # consume the token by moving the index to the end of the matched part
-        
-        if token == None:
-            self.no_token()
         self.current_char_index += len(longest)
+        
+        
+        if (token == None):
+            self.current_char_index -= len(longest)
+            self.no_token()   
+        
         return (token, longest)
 
     def lookahead(self):
@@ -85,13 +91,13 @@ class Scanner:
            If the token is a number or an identifier, not just the
            token but a pair of the token and its value is returned.'''
         token, value = self.current_token
-        if token not in expected_tokens:
-            unexpected_token(token, expected_tokens)
+        
         if token in [Token.ID, Token.NUM]:
             return token, value
         else:
             return token
-        
+        if token not in expected_tokens:
+            unexpected_token(token, expected_tokens)
 
 class Token:
     # The following enumerates all tokens.
