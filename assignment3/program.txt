@@ -1,0 +1,11 @@
+read z;
+
+n := 1;
+sum := 0;
+if z < 3 do
+  sum := sum + n + z;
+  n := n - 1
+else
+  sum := z * 4
+end;
+write sum

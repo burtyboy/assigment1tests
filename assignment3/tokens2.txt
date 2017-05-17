@@ -1,0 +1,27 @@
+READ
+ID n
+SEM
+ID sum
+BEC
+NUM 0
+SEM
+WHILE
+ID n
+GRTR
+NUM 0
+DO
+ID sum
+BEC
+ID sum
+ADD
+ID n
+SEM
+ID n
+BEC
+ID n
+SUB
+NUM 1
+END
+SEM
+WRITE
+ID sum

@@ -1,0 +1,8 @@
+xd := 2;
+if x >= 2 then
+	sum := 3;
+end;
+while sum = 3 do
+	x * x / x + x - 2
+end
+

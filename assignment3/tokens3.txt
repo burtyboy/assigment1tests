@@ -1,0 +1,31 @@
+READ
+ID j
+SEM
+ID x
+BEC
+ID j
+IF
+LPAR
+ID x
+EQ
+NUM 3
+RPAR
+THEN
+ID y
+BEC
+ID x
+MUL
+NUM 3
+ADD
+NUM 5
+SUB
+NUM 7
+WHILE
+ID y
+NEQ
+NUM 4
+DO
+lexical error: no token found at the start of 0x + 3
+end
+
+	
